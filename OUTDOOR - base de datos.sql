@@ -29,6 +29,3 @@ CREATE TABLE EstadoPartida(id_estadoPartida INT PRIMARY KEY IDENTITY(0,1) NOT NU
 						   puntaje INT NOT NULL,
 						   interrumpida INT NOT NULL);
 			
-use OUTDOOR;
-select * from Jugador;
-select * from Estadistica;
