@@ -16,7 +16,7 @@ namespace OUTDOOR.src.tools.database
 
         public Conexion()
         {
-            conexion = new SqlConnection("server=DESKTOP-3TGTJ4V ; database=OUTDOOR ; integrated security = true");
+            conexion = new SqlConnection("server=DESKTOP-OE9RG4S; database=OUTDOOR ; integrated security = true");
         }
 
         public Jugador login(String usuario, String clave)

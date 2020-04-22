@@ -13,10 +13,16 @@ namespace OUTDOOR.src.view.components
     public partial class componet_jugador : UserControl
     {
         private delegate void del();
+        private int _vidaQuitada = 5;
         public componet_jugador()
         {
             InitializeComponent();
             Vida = 100;
+        }
+
+        public void insetarNivel(int nivel)
+        {
+            this._vidaQuitada = nivel * 5;
         }
 
         public int Vida { get; set; }
@@ -35,12 +41,19 @@ namespace OUTDOOR.src.view.components
             }
             else
             {
-                if (progressBar1.Value >= 1)
+                try
                 {
-                    
-                    progressBar1.Value -= 5;
+                    if (progressBar1.Value >= 1)
+                    {
+
+                        progressBar1.Value -= _vidaQuitada;
+                    }
+                    Vida = progressBar1.Value;
                 }
-                Vida = progressBar1.Value;
+                catch {
+                    progressBar1.Value = 0;
+                    Vida = 0;
+                }
             }
         }
         public void aumentarVida()
@@ -52,12 +65,16 @@ namespace OUTDOOR.src.view.components
             }
             else
             {
-                if (progressBar1.Value < 100)
+                try
                 {
-                    
-                    progressBar1.Value += 5;
+                    if (progressBar1.Value < 100)
+                    {
+
+                        progressBar1.Value += 5;
+                    }
+                    Vida = progressBar1.Value;
                 }
-                Vida = progressBar1.Value;
+                catch { }
             }
         }
     }

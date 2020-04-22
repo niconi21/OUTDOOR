@@ -24,6 +24,7 @@ namespace OUTDOOR.src.view.pages
         private int _disparos = 0;
         private int _segundos = 0;
         private int _puntaje = 0;
+        private int _nivel = 0;
 
         private Thread _balaJugador;
         private Thread _balaObjetivo;
@@ -32,10 +33,11 @@ namespace OUTDOOR.src.view.pages
 
         private delegate void del(Control c, int x, int y);
 
-        public Juego_page(Jugador jugador)
+        public Juego_page(Jugador jugador, int nivel)
         {
             InitializeComponent();
             _jugador = jugador;
+            _nivel = nivel;
             if (exitePartidaInterrumpida())
             {
                 inicio.Location = new Point(20,inicio.Location.Y);
@@ -156,6 +158,7 @@ namespace OUTDOOR.src.view.pages
                 this.inicio.Visible = false;
                 this.pb_jugador.Visible = true;
                 this.pb_objetivo.Visible = true;
+                this.pb_jugador.insetarNivel(_nivel);
                 _objetivo = new Thread(mover_objetivo);
                 _objetivo.Start();
                 _tiempo = new Thread(medirTiempo);

@@ -94,7 +94,8 @@ namespace OUTDOOR.src.view.pages
             if (e.KeyChar == 13)
             {
                 inicio.pararHilo();
-                (new Juego_page(_jugador)).Show();
+                var nivel=inicio.nivel();
+                (new Juego_page(_jugador,nivel)).Show();
                 this.Dispose();
             }
         }
