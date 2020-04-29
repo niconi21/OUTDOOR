@@ -197,7 +197,7 @@ namespace OUTDOOR.src.view.pages
             }
             if (e.KeyChar == 'd' || e.KeyChar == 'D')//mover a la derecha el jugador
             {
-                if (pb_jugador.Location.X < this.Width - 250)
+                if (pb_jugador.Location.X < this.Width - 47)
                     pb_jugador.Location = new Point(pb_jugador.Location.X + 10, pb_jugador.Location.Y);
             }
             if (e.KeyChar == ' ')//balas del jugador
@@ -243,7 +243,7 @@ namespace OUTDOOR.src.view.pages
                     _balaObjetivo = new Thread(mover_balaObjetivo);
                     _balaObjetivo.Start();
                     moverControl(pb_objetivo, ubicacion.X+=5, ubicacion.Y);
-                    if (ubicacion.X > this.Width - 250)
+                    if (ubicacion.X > this.Width - 47)
                         break;
                 }
                 while (true)

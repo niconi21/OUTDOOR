@@ -94,9 +94,16 @@ namespace OUTDOOR.src.view.pages
             if (e.KeyChar == 13)
             {
                 inicio.pararHilo();
-                var nivel=inicio.nivel();
+                try
+                {
+                    var nivel=inicio.nivel();
                 (new Juego_page(_jugador,nivel)).Show();
                 this.Dispose();
+                }
+                catch 
+                {
+                    MessageBox.Show("Seleccione un nivel de dificultad");
+                }
             }
         }
     }
